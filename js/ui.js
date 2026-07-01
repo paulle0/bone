@@ -2,12 +2,29 @@
  * UI module - rendering, modals, toasts, file cards
  */
 import { getFileIcon, formatDate, truncateHex } from './utils.js';
+import { toggleTheme, getTheme } from './theme.js';
+
+/** Icon glyphs for theme states */
+const THEME_ICONS = { light: '🌙', dark: '☀️' };
 
 /** Show a view, hide others */
 export function showView(viewId) {
   document.querySelectorAll('.view').forEach(v => {
     v.classList.toggle('active', v.id === viewId);
   });
+}
+
+/** Create the theme toggle button (shared by login + dashboard) */
+function createThemeButton() {
+  const btn = document.createElement('button');
+  btn.className = 'theme-toggle';
+  btn.title = 'Toggle dark / light mode';
+  btn.textContent = THEME_ICONS[getTheme()];
+  btn.onclick = () => {
+    const next = toggleTheme();
+    btn.textContent = THEME_ICONS[next];
+  };
+  return btn;
 }
 
 /** Render the header actions for logged-in user */
@@ -27,6 +44,8 @@ export function renderHeaderUser(npub, onRelays, onLogout) {
   relayBtn.onclick = onRelays;
   el.appendChild(relayBtn);
 
+  el.appendChild(createThemeButton());
+
   const logoutBtn = document.createElement('button');
   logoutBtn.className = 'btn btn-secondary btn-sm';
   logoutBtn.textContent = 'Logout';
@@ -34,9 +53,11 @@ export function renderHeaderUser(npub, onRelays, onLogout) {
   el.appendChild(logoutBtn);
 }
 
-/** Clear header actions */
+/** Clear header actions and re-add theme toggle */
 export function clearHeader() {
-  document.getElementById('header-actions').innerHTML = '';
+  const el = document.getElementById('header-actions');
+  el.innerHTML = '';
+  el.appendChild(createThemeButton());
 }
 
 /** Render file list */

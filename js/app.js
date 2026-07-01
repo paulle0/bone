@@ -15,6 +15,7 @@ import {
   showUploadModal, showDeleteModal,
   handleDownload, showRelayModal
 } from './modals.js';
+import { initTheme } from './theme.js';
 import { bytesToHex } from '../lib/nostr-bundle.js';
 import { CONFIG } from './config.js';
 
@@ -22,6 +23,9 @@ let session = null; // { secretKey, pubkey, masterPubkey, relays }
 
 /** App initialization */
 function init() {
+  initTheme();
+  clearHeader(); // adds theme toggle on login screen
+
   document.getElementById('btn-login').onclick = handleNloginLogin;
   document.getElementById('btn-nsec-login').onclick = handleNsecLogin;
   document.getElementById('btn-upload').onclick = () => {
