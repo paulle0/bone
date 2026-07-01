@@ -1,0 +1,74 @@
+/* === Palette tokens (static) === */
+:root {
+  --purple-50: #f5f3ff;
+  --purple-100: #ede9fe;
+  --purple-200: #ddd6fe;
+  --purple-300: #c4b5fd;
+  --purple-400: #a78bfa;
+  --purple-500: #8b5cf6;
+  --purple-600: #7c3aed;
+  --purple-700: #6d28d9;
+  --purple-800: #5b21b6;
+  --purple-900: #4c1d95;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --green-500: #22c55e;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+/* === Semantic tokens: light (default) === */
+:root, [data-theme="light"] {
+  --bg-page: #f9fafb;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f3f4f6;
+  --bg-inset: #f3f4f6;
+  --border-default: #e5e7eb;
+  --border-subtle: #f3f4f6;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-faint: #9ca3af;
+  --accent: var(--purple-700);
+  --accent-hover: var(--purple-800);
+  --accent-subtle: var(--purple-50);
+  --accent-text: var(--purple-700);
+  --btn-secondary-bg: #e5e7eb;
+  --btn-secondary-text: #374151;
+  --btn-secondary-hover: #d1d5db;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-focus-ring: var(--purple-100);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05);
+  color-scheme: light;
+}
+
+/* === Semantic tokens: dark === */
+[data-theme="dark"] {
+  --bg-page: #0f0f14;
+  --bg-surface: #1a1a24;
+  --bg-surface-hover: #242430;
+  --bg-inset: #14141c;
+  --border-default: #2a2a38;
+  --border-subtle: #22222e;
+  --text-primary: #e8e8ed;
+  --text-secondary: #b0b0be;
+  --text-muted: #8888a0;
+  --text-faint: #5e5e76;
+  --accent: var(--purple-500);
+  --accent-hover: var(--purple-400);
+  --accent-subtle: rgba(139, 92, 246, 0.12);
+  --accent-text: var(--purple-400);
+  --btn-secondary-bg: #242430;
+  --btn-secondary-text: #c8c8d6;
+  --btn-secondary-hover: #2e2e3c;
+  --input-bg: #14141c;
+  --input-border: #2a2a38;
+  --input-focus-ring: rgba(139, 92, 246, 0.25);
+  --overlay-bg: rgba(0, 0, 0, 0.65);
+  --shadow: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,.35), 0 4px 6px rgba(0,0,0,.2);
+  color-scheme: dark;
+}

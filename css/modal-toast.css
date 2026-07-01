@@ -1,3 +1,17 @@
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--bg-surface);
   border-radius: var(--radius-lg);
   padding: 28px;
   max-width: 480px;
@@ -8,7 +22,7 @@
 .modal h3 {
   font-size: 1.1rem;
   margin-bottom: 16px;
-  color: var(--gray-800);
+  color: var(--text-primary);
 }
 
 .modal-actions {
@@ -20,7 +34,7 @@
 
 /* Upload area */
 .upload-area {
-  border: 2px dashed var(--gray-300);
+  border: 2px dashed var(--input-border);
   border-radius: var(--radius-lg);
   padding: 40px 20px;
   text-align: center;
@@ -31,11 +45,11 @@
 
 .upload-area:hover, .upload-area.dragover {
   border-color: var(--purple-400);
-  background: var(--purple-50);
+  background: var(--accent-subtle);
 }
 
 .upload-area p {
-  color: var(--gray-500);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -46,7 +60,7 @@
 
 .upload-file-info {
   font-size: 0.85rem;
-  color: var(--gray-600);
+  color: var(--text-secondary);
   margin-bottom: 12px;
 }
 
@@ -54,7 +68,7 @@
 .progress-bar {
   width: 100%;
   height: 6px;
-  background: var(--gray-200);
+  background: var(--btn-secondary-bg);
   border-radius: 3px;
   overflow: hidden;
   margin: 12px 0;
@@ -62,7 +76,7 @@
 
 .progress-fill {
   height: 100%;
-  background: var(--purple-600);
+  background: var(--accent);
   border-radius: 3px;
   transition: width 0.3s ease;
   width: 0;
@@ -70,7 +84,7 @@
 
 .progress-text {
   font-size: 0.8rem;
-  color: var(--gray-500);
+  color: var(--text-muted);
   text-align: center;
 }
 
@@ -84,17 +98,25 @@
 .relay-input-row input {
   flex: 1;
   padding: 8px 10px;
-  border: 1px solid var(--gray-300);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius);
   font-size: 0.85rem;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.relay-input-row input:focus {
+  outline: none;
+  border-color: var(--purple-500);
+  box-shadow: 0 0 0 3px var(--input-focus-ring);
 }
 
 .relay-tag {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--purple-50);
-  color: var(--purple-700);
+  background: var(--accent-subtle);
+  color: var(--accent-text);
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 0.78rem;
@@ -133,7 +155,7 @@
 
 .toast.success { background: var(--green-500); }
 .toast.error { background: var(--red-500); }
-.toast.info { background: var(--purple-700); }
+.toast.info { background: var(--accent); }
 
 @keyframes slideIn {
   from { transform: translateX(100%); opacity: 0; }
@@ -145,8 +167,8 @@
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2px solid var(--gray-300);
-  border-top-color: var(--purple-600);
+  border: 2px solid var(--border-default);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
@@ -158,6 +180,6 @@
 .loading-state {
   text-align: center;
   padding: 40px;
-  color: var(--gray-400);
+  color: var(--text-faint);
   grid-column: 1 / -1;
 }

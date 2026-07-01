@@ -2,7 +2,7 @@
 .login-card {
   max-width: 420px;
   margin: 60px auto;
-  background: white;
+  background: var(--bg-surface);
   border-radius: var(--radius-lg);
   padding: 40px 32px;
   box-shadow: var(--shadow-lg);
@@ -16,12 +16,12 @@
 }
 
 .login-card h2 {
-  color: var(--purple-700);
+  color: var(--accent-text);
   margin-bottom: 8px;
 }
 
 .login-card p {
-  color: var(--gray-500);
+  color: var(--text-muted);
   margin-bottom: 24px;
   font-size: 0.9rem;
 }
@@ -34,7 +34,7 @@
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--gray-600);
+  color: var(--text-secondary);
   margin-bottom: 6px;
 }
 
@@ -42,20 +42,22 @@
 .login-form input {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid var(--gray-300);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius);
   font-size: 0.9rem;
   font-family: monospace;
   resize: vertical;
   margin-bottom: 12px;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background: var(--input-bg);
+  color: var(--text-primary);
 }
 
 .login-form textarea:focus,
 .login-form input:focus {
   outline: none;
   border-color: var(--purple-500);
-  box-shadow: 0 0 0 3px var(--purple-100);
+  box-shadow: 0 0 0 3px var(--input-focus-ring);
 }
 
 .login-form .btn {
@@ -68,14 +70,14 @@
   align-items: center;
   gap: 12px;
   margin: 20px 0;
-  color: var(--gray-400);
+  color: var(--text-faint);
   font-size: 0.8rem;
 }
 
 .divider::before, .divider::after {
   content: "";
   flex: 1;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--border-default);
 }
 
 /* File grid */
@@ -86,9 +88,9 @@
 }
 
 .file-card {
-  background: white;
+  background: var(--bg-surface);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-default);
   padding: 16px;
   transition: box-shadow 0.15s;
 }
@@ -108,8 +110,8 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius);
-  background: var(--purple-50);
-  color: var(--purple-700);
+  background: var(--accent-subtle);
+  color: var(--accent-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,41 +122,26 @@
 .file-name {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--gray-800);
+  color: var(--text-primary);
   word-break: break-all;
 }
 
 .file-meta {
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--text-faint);
   margin-top: 2px;
 }
 
 .file-card-actions {
   display: flex;
   gap: 8px;
-  border-top: 1px solid var(--gray-100);
+  border-top: 1px solid var(--border-subtle);
   padding-top: 12px;
 }
 
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: var(--gray-400);
+  color: var(--text-faint);
   grid-column: 1 / -1;
 }
-
-/* Modal */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  padding: 20px;
-}
-
-.modal {
-  background: white;

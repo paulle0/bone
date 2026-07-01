@@ -1,33 +1,4 @@
-:root {
-  --purple-50: #f5f3ff;
-  --purple-100: #ede9fe;
-  --purple-200: #ddd6fe;
-  --purple-300: #c4b5fd;
-  --purple-400: #a78bfa;
-  --purple-500: #8b5cf6;
-  --purple-600: #7c3aed;
-  --purple-700: #6d28d9;
-  --purple-800: #5b21b6;
-  --purple-900: #4c1d95;
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
-  --red-500: #ef4444;
-  --red-600: #dc2626;
-  --green-500: #22c55e;
-  --radius: 8px;
-  --radius-lg: 12px;
-  --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05);
-}
-
+/* === Reset === */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -37,14 +8,16 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, sans-serif;
-  background: var(--gray-50);
-  color: var(--gray-800);
+  background: var(--bg-page);
+  color: var(--text-primary);
   min-height: 100vh;
+  transition: background 0.25s, color 0.25s;
 }
 
+/* === Header === */
 header {
-  background: white;
-  border-bottom: 1px solid var(--gray-200);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
   padding: 0 24px;
   height: 60px;
   display: flex;
@@ -61,20 +34,17 @@ header {
   gap: 12px;
 }
 
-.logo {
-  width: 32px;
-  height: 32px;
-}
+.logo { width: 32px; height: 32px; }
 
 header h1 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--purple-700);
+  color: var(--accent-text);
 }
 
 .subtitle {
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--text-faint);
   display: none;
 }
 
@@ -88,6 +58,7 @@ header h1 {
   gap: 12px;
 }
 
+/* === Layout === */
 main {
   max-width: 960px;
   margin: 0 auto;
@@ -97,6 +68,7 @@ main {
 .view { display: none; }
 .view.active { display: block; }
 
+/* === Buttons === */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -116,57 +88,52 @@ main {
 }
 
 .btn-primary {
-  background: var(--purple-700);
+  background: var(--accent);
   color: white;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--purple-800);
+  background: var(--accent-hover);
 }
 
 .btn-secondary {
-  background: var(--gray-200);
-  color: var(--gray-700);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: var(--gray-300);
+  background: var(--btn-secondary-hover);
 }
 
-.btn-danger {
-  background: var(--red-500);
-  color: white;
-}
-
-.btn-danger:hover:not(:disabled) {
-  background: var(--red-600);
-}
+.btn-danger { background: var(--red-500); color: white; }
+.btn-danger:hover:not(:disabled) { background: var(--red-600); }
 
 .btn-icon {
   background: transparent;
-  color: var(--gray-500);
+  color: var(--text-muted);
   padding: 8px;
   font-size: 1.2rem;
   border-radius: 50%;
 }
 
-.btn-icon:hover { background: var(--gray-100); }
+.btn-icon:hover { background: var(--bg-surface-hover); }
 .btn-sm { padding: 6px 12px; font-size: 0.8rem; }
 
 .btn-text {
   background: none;
-  color: var(--purple-700);
+  color: var(--accent-text);
   padding: 6px 10px;
 }
 
-.btn-text:hover { background: var(--purple-50); }
+.btn-text:hover { background: var(--accent-subtle); }
 
+/* === User info === */
 .user-info {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 0.85rem;
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .user-npub {
@@ -178,6 +145,7 @@ main {
   font-size: 0.78rem;
 }
 
+/* === Toolbar === */
 .hidden { display: none !important; }
 
 .toolbar {
@@ -189,10 +157,32 @@ main {
 
 .toolbar h2 {
   font-size: 1.3rem;
-  color: var(--gray-800);
+  color: var(--text-primary);
 }
 
 .toolbar-actions {
   display: flex;
   gap: 8px;
+}
+
+/* === Theme toggle === */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--text-faint);
 }
